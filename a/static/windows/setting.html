@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./appcore.css">
+   <style>
+      body{
+         background-color: black;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: white;
+      }
+      .panel{
+         display: flex;
+         align-content: start;
+         justify-content: start;
+         flex-direction: column;
+      }
+      .option{
+         display: flex;
+         align-content: start;
+         justify-content: start;
+      }
+</style>
+</head>
+<body>
+   <div class="panel">
+      
+      <form method="post" action="upload" enctype="multipart/form-data">
+      <div>
+         프로필 변경 <input type="file" name="file" accept="image/*"><input type="submit">
+      </div>
+      
+      <form method="post" action="upload" enctype="multipart/form-data">
+      <div>
+         배경화면 변경 <input type="file" name="file" accept="image/*"><input type="submit">
+      </div>
+
+   </div>
+
+</body>
+<script>
+</script>
+</html>

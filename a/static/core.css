@@ -1,0 +1,195 @@
+@font-face {
+  font-family: 'NEXON Lv1';
+  src: url('./font.woff') format('woff');
+}
+* {font-family: "NEXON Lv1"; }
+
+html,body{
+  margin: 0;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
+  width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image : url("./wallpaper/field.jpg");
+  background-repeat: no-repeat; background-size : cover;
+  transition: all 1s;
+}
+/* 기본설정 */
+.idpw{
+  outline: none;
+  background: none; 
+  text-align: center;
+  border: none; 
+  color: white;
+  opacity: 50%;
+}
+#go{
+  opacity: 50%;
+  width: 1rem; height: 1rem;
+  filter: invert(100%);
+  background-repeat: no-repeat; background-size : cover;
+}
+
+.idpw:-webkit-autofill,
+.idpw:-webkit-autofill:hover,
+.idpw:-webkit-autofill:focus,
+.idpw:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: white;
+}
+#id{font-size: 1.25rem;}
+#pw{font-size: 0.7rem;
+transform: translateY(-0.25rem);
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 10%;
+  border-radius: 50vh;
+  background-color: none
+}
+::-webkit-scrollbar-track {
+  background-color: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+.cover{
+  color: white;
+  width: 100%; height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(5, 5, 5, 0.7);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  transition: all 0.5s;
+  position: fixed;
+}
+
+#profile{
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+}
+.profile_teduri{
+  position: fixed;
+  width: 6rem; height: 6rem;
+  border: 2px solid white;
+  border-radius:  50%;
+  opacity: 50%;
+}
+.profile_teduri.load{
+  border: 2px dashed white;
+  animation: loading 5s infinite linear;
+}
+.profile_teduri.load.ok{border: 2px solid green;}
+.profile_teduri.load.no{border: 2px solid red;}
+@keyframes loading {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.profile_img{
+  width: 5rem; height: 5rem;
+  border-radius:  50%;
+  background-image: url("./ico/unknown.svg");
+  background-size : cover;
+  /* transition: all 0.5s; */
+}
+.ment{
+  font-size: 0.7rem;
+  opacity: 50%;
+  transition: all 0.5s;
+  transform: translateY(0.25rem);
+}
+
+.app{
+  /* width: 0%; height: 0%; */
+  width: 3rem; height: 3rem;
+  background-repeat: no-repeat; background-size : cover;
+  margin-bottom: 0.5rem;
+  filter: invert(0%);
+  border-radius: 25%; 
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid black;
+}
+
+.info{
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.files{
+  width: 100%;
+  height: 20px;
+  min-height: 20px;
+  /* max-width: 50px; */
+  padding: 1%;
+  font-size: small;
+  /* color: white; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-direction: column; */
+  /* overflow: hidden; */
+  box-sizing: border-box;
+  margin-top: 1%;
+}
+.files.hold{
+  width: 50px;
+  height: 50px;
+  font-size: small;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.files_ico{
+  width: 1rem;
+  height: 1rem;
+  filter: invert(100%);
+  margin-right: 1%;
+  max-width: 300px;
+  max-height: 300px;
+  transition: all 0.2s;
+
+  /* position: unset; */
+}
+
+.files_ico:hover{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+#drag{
+  width: 100%; height: 100%;
+}
+
+.text{
+  overflow-x: hidden;
+  /* word-wrap: break-word; */
+  width: 100%;
+}
+.apphtml{
+  width: 100%; height: 100%;
+  overflow: hidden;
+  border: none;
+}
