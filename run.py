@@ -11,7 +11,7 @@ app.secret_key = "aa2"
 
 maked_id = []
 profile = ["profile", "wallpaper"]
-def check(id): return bool(re.match(r"^[a-zA-Z0-9가-힣!@#$%^&()_+-=\s]+$", id))
+def check(id): return bool(re.match(r"^[^\\\/:*?\"<>|]+$", id))
 
 
 
@@ -172,37 +172,43 @@ def action():
 def upload():
     if request.method == 'POST':
         id = session.get('user')
+        print(request.form)
         chunk = request.files['chunk']
         file_name = request.form['fileName']
+        file_for = request.form['type']
         if check(id) and check(file_name):
             loot = f"user/{id}/Files/"#smyh에 있는 원링크 다이렉트 센더로 교체하기
-            # if type == "profile":
-            #     for dlc in os.listdir(f"user/{id}"):
-            #         if dlc.split(".")[0] == "profile": os.remove(f"user/{id}/{dlc}")
-            #     file = file_name.split(".")[-1]
-            #     with open(f"user/{id}/profile.{file}", 'ab') as f:
-            #         chunk.save(f)
-            #     return "OK"
-            # if type == "wallpaper":
-            #     for dlc in os.listdir(f"user/{id}"):
-            #         if dlc.split(".")[0] == "wallpaper": os.remove(f"user/{id}/{dlc}")
-            #     file = file_name.split(".")[-1]
-            #     with open(f"user/{id}/wallpaper.{file}", 'ab') as f:
-            #         chunk.save(f)
-            #     return "OK"
-            # else:
-            upload = f"{loot}{file_name}"
-            try:
-                if os.path.exists(upload):
-                    for copy in range(99999):
-                        if os.path.exists(upload) and str(request.form['size']) == str(os.path.getsize(upload)):
-                            upload = f"{loot}{file_name.split('.')[0]} - copy({copy}).{file_name.split('.')[-1]}"
-                        else: break
-            except FileNotFoundError: pass
-            except Exception as E: print(E)
-            with open(upload, 'ab') as f: chunk.save(f)
-            return 'Done'
-        else: return "ok"
+            if file_for == "profile":
+                for dlc in os.listdir(f"user/{id}"):
+                    if dlc.split(".")[0] == "profile": os.remove(f"user/{id}/{dlc}")
+                file = file_name.split(".")[-1]
+                with open(f"user/{id}/profile.{file}", 'ab') as f:
+                    chunk.save(f)
+                return "OK"
+            if file_for == "wallpaper":
+                for dlc in os.listdir(f"user/{id}"):
+                    if dlc.split(".")[0] == "wallpaper": os.remove(f"user/{id}/{dlc}")
+                file = file_name.split(".")[-1]
+                with open(f"user/{id}/wallpaper.{file}", 'ab') as f:
+                    chunk.save(f)
+                return "OK"
+            else:
+                upload = f"{loot}{file_name}"
+                print(upload)
+                try:
+                    if os.path.exists(upload):
+                        for copy in range(99999):
+                            if os.path.exists(upload) and str(request.form['size']) == str(os.path.getsize(upload)):
+                                upload = f"{loot}{file_name.split('.')[0]} - copy({copy}).{file_name.split('.')[-1]}"
+                                print(upload)
+                            else: break
+                except FileNotFoundError: pass
+                except Exception as E: print(E)
+                with open(upload, 'ab') as f: chunk.save(f)
+                return 'Done'
+        else:
+            print(f"악의적 접근을 막음: {file_name}")
+            return "in your dreams~"
 
 @app.route('/add', methods = ['POST'])
 def add():

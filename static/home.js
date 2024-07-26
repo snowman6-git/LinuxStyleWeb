@@ -252,6 +252,7 @@ async function upload(file, window) {
     formData.append('chunk', chunk);
     formData.append('size', file.size);
     formData.append('fileName', file.name);
+    formData.append('type', "file");
     const response = await fetch(url, { //이건 await 제거하면 좆됌.
       method: 'POST',
       body: formData,
