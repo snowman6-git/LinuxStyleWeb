@@ -1,0 +1,232 @@
+html,body{
+    margin: 0;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-use-select: none;
+    user-select: none;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.cover.open{
+    transform: translateY(-100vh);
+}
+.profile_img.load{animation: fade 0.5s}
+#id{animation: next 0.5s;}
+@keyframes next {0%{opacity: 0; transform: translateY(-0.5rem);} 100%{opacity: 0.5; transform: translateY(0rem);}}
+
+@keyframes fade {
+  0%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
+.panel{
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+.head{
+    width: 100%; height: 1.5rem;
+    background-color: black;
+    transform: translateY(-10vh);
+    /* position: fixed; */
+    transition: all 0.5s;
+    /* top: 0px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float: top;
+}
+.ico{
+    width: 1.25rem; height: 1.25rem;
+    filter: invert(100%);
+    margin-left: 0.25rem;
+
+}
+.datetime{
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+.head.load{
+    transform: translateY(0vh);
+}
+
+.bar{
+    width: 3.5rem; height: 100%; 
+    /* calc(100% - 1.5rem); */
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateX(-10vw);
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.bar.load{
+    transform: translateX(0vw);
+}
+/* .app.load{
+    width: 3rem; height: 3rem;
+    background-repeat: no-repeat; background-size : cover;
+    margin-bottom: 0.5rem;
+} */
+.app:hover{
+    filter: invert(100%);
+}
+.app_name{
+    position: fixed;
+    opacity: 0;
+    transform: translateX(0vw);
+    transition: all 0.25s;
+    font-weight: bold;
+}
+.app:hover .app_name{
+    color: black;
+    opacity: 1;
+    transform: translateX(3.5rem);
+}
+.apps{
+    height: 90%; width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.profile_app{
+    width: 3rem; height: 3rem;
+    background-repeat: no-repeat; background-size : cover;
+    border-radius: 25%;
+    border: 2px solid white;
+    transition: all 0.5s;
+}
+.display{
+    width: 100%; height: 100%;
+    display: flex;
+    align-content: start;
+}
+.sector{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black; */
+}
+.tab{
+    width: 100%; height: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sort{
+    background-color: none;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.title{
+    color: black;
+    font-weight: bold;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+.btn{
+    width: 0.8rem; height: 0.8rem;
+    border-radius: 50%;
+    background-color: none;
+    margin-left: 0.1rem;
+}
+#white{background-color: none;}
+#green{background-color: green;}
+#yellow{background-color: gold;}
+#red{background-color: red;}
+
+.window{
+    width: 0rem; height: 0rem;
+    /* width: 50rem; height: 35rem; */
+    position: fixed;
+    border-radius: 0.5rem;
+    transition: all 0.5s;
+    opacity: 0;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+.window.load{
+    opacity: 1;
+    width: 40rem; height: 25.5rem;
+}
+.window.load.ytcat{
+    opacity: 1;
+    width: 20rem; height: 10rem;
+}
+
+.appname{
+    color: black;
+}
+.page{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 90%;
+    color:  white;
+}
+.appmenu{
+    position: fixed;
+    opacity: 0;
+    transform: translateX(0vw);
+    transition: all 0.25s;
+}
+.appmenu.load{
+    width: 10rem; height: 20rem;
+    color: white;
+    opacity: 1;
+    transform: translateX(-3.5rem);
+    background-color: black;
+}
+.status{
+    color: white;
+    width: 0rem; height: 0rem; 
+    position: fixed; 
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(1.5rem);
+    opacity: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    backdrop-filter: blur(0.1rem);
+}
+.status.load{
+    z-index: 99;
+    opacity: 1;
+    animation: status_load 0.25s;
+    width: 20rem; height: 4.5rem; 
+}
+@keyframes status_load {0%{opacity: 0; transform: translateY(1rem);} 100%{opacity: 1; transform: translateY(1.5rem);}}
+@keyframes block_add {0%{opacity: 0; transform: translateY(1rem);} 100%{opacity: 1; transform: translateY(5rem);}}
+
+.status_upload{
+    opacity: 0;
+    /* transition: all 0.5s; */
+    width: 1rem; height: 1rem;
+    animation: loading 1s infinite linear;
+}
+.status_upload.start{
+    opacity: 1;
+}
+
+
