@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>CaTCloud 2.0</title>
+    <link rel="stylesheet" href="./static/mobile/core.css">
+    <link rel="stylesheet" href="./static/mobile/mhome.css">
+</head>
+<body>
+    <div class="panel">
+    <div class="display">
+        <div class="bar">
+            <div class="apps"></div>
+            <div class="profile_app"></div>
+        </div>
+
+            <div class="window">
+                <div class="tab">
+                    <div class="btns" style="opacity: 1; margin-left: 0.5rem;">
+                        <img class="status_upload" src="./static/ico/refresh.svg" alt="">
+                        
+                        <div class="btn" id="white"></div>
+                        <div class="btn" id="white"></div>
+                    </div>
+
+                    <div class="title">unknown app</div>
+                    <div class="btns">
+                        <div class="btn" id="green"></div>
+                        <div class="btn" id="yellow"></div>
+                        <div class="btn" id="red" onclick="window_close(event)"></div>
+                    </div>
+                </div>
+
+                <div class="sort" style="border-bottom: 1px solid white;">
+
+                    <!-- <div class="files">
+                        <div class="files_ico"></div>
+                        <div class="text">Filename</div>
+                        <div class="info">
+                            <div>DateTime</div>
+                            <div>Format</div>
+                            <div style="margin-right: 0.5rem;">size</div>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <div class="status"></div>
+
+                <div class="page">
+                </div>
+
+                <div class="sort" style="border-top: 1px solid white;">
+                    <div id="loot" ></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        
+
+    </div>
+    
+    
+    <div class="cover">
+        <div id="profile">
+            <div class="profile_teduri" style="border: 2px solid green;"></div>
+            <div class="profile_img"></div>
+        </div>
+        <div class="ment">welcome!</div>
+        <div id="id" class="idpw">{{id}}</div>
+        <input id="pw" class="idpw" type="password" placeholder="password">
+        <div id="go" onclick="wopen()"></div>
+    </div>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.js"></script>
+    <script type="text/javascript" src="./static/home.js"></script>
+    <script type="text/javascript" src="./static/dragable.js"></script>
+    <script type="text/javascript" src="./static/Generate-windows.js"></script>
+</html>

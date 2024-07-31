@@ -99,6 +99,15 @@ def storage():
     else:
         return render_template("no.html")
     
+@app.route('/t', methods = ['POST', 'GET'])
+def a():
+    user = session.get('user')
+    if not user == None:
+        print(user + "has join")
+        return render_template("mhome.html", id=user)
+    else:
+        return render_template("no.html")
+    
 @app.route("/preview", methods = ['POST', 'GET'])
 def preview():
     id = session.get('user')
